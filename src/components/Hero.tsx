@@ -81,8 +81,7 @@ export const Hero = () => {
                 </Button>
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="border-2 border-night-border hover:bg-night-muted text-night-foreground font-semibold"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                   asChild
                 >
                   <Link
