@@ -2,17 +2,20 @@ import { Navbar } from '@/components/Navbar';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
+import { PageTransition } from '@/components/PageTransition';
 
 const ContactPage = () => {
   return (
-    <div className="smooth-scroll">
-      <Navbar />
-      <div className="pt-20">
-        <Contact />
+    <PageTransition>
+      <div className="smooth-scroll">
+        <Navbar />
+        <div className="pt-20">
+          <Contact />
+        </div>
+        <Footer />
+        <BackToTop />
       </div>
-      <Footer />
-      <BackToTop />
-    </div>
+    </PageTransition>
   );
 };
 
