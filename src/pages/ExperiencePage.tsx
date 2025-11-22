@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/Navbar';
 import { Experience } from '@/components/Experience';
 import { Footer } from '@/components/Footer';
+import { BackToTop } from '@/components/BackToTop';
 
 const ExperiencePage = () => {
   return (
@@ -10,6 +11,7 @@ const ExperiencePage = () => {
         <Experience />
       </div>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

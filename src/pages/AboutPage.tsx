@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/Navbar';
 import { About } from '@/components/About';
 import { Footer } from '@/components/Footer';
+import { BackToTop } from '@/components/BackToTop';
 
 const AboutPage = () => {
   return (
@@ -10,6 +11,7 @@ const AboutPage = () => {
         <About />
       </div>
       <Footer />
+      <BackToTop />
     </div>
   );
 };
