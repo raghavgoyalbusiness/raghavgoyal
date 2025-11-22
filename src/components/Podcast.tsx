@@ -1,5 +1,8 @@
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import { AnimatedSection } from '@/components/AnimatedSection';
 import { Headphones, Mic, Users, Heart } from 'lucide-react';
+import podcastArtwork from '@/assets/podcast-artwork.jpg';
 
 export const Podcast = () => {
   const features = [
@@ -27,16 +30,32 @@ export const Podcast = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          {/* Podcast Artwork */}
+          <AnimatedSection>
+            <div className="mb-12 flex justify-center">
+              <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl hover-lift max-w-2xl">
+                <img
+                  src={podcastArtwork}
+                  alt="The 3AM Show Podcast Artwork"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gradient-primary">
               The 3AM Show
             </h2>
             <p className="text-xl text-night-foreground/90 italic">
               A late-night podcast for the quiet, the restless, and the people who do their best thinking when the world is asleep
-            </p>
-          </div>
+              </p>
+            </div>
+          </AnimatedSection>
 
-          <div className="space-y-8 mb-12">
+          <AnimatedSection delay={0.3}>
+            <div className="space-y-8 mb-12">
             <div className="card-night border-2 border-night-border">
               <p className="text-lg text-night-foreground/90 leading-relaxed">
                 I started this show from a place of <span className="text-primary font-medium">insomnia</span>, awkward school years, 
@@ -67,13 +86,15 @@ export const Podcast = () => {
                     <Headphones className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-night-foreground/80">{item}</span>
                   </li>
-                ))}
-              </ul>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Features */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <AnimatedSection delay={0.4}>
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -84,10 +105,12 @@ export const Podcast = () => {
                 </div>
               );
             })}
-          </div>
+            </div>
+          </AnimatedSection>
 
           {/* Call to Action */}
-          <div className="text-center">
+          <AnimatedSection delay={0.5}>
+            <div className="text-center">
             <p className="text-lg text-night-foreground/90 mb-6 italic">
               If you're awake at 3 AM or just carrying a 3 AM feeling inside you — this is a place to be seen.
             </p>
@@ -119,7 +142,8 @@ export const Podcast = () => {
                 <a href="#podcast">All Episodes</a>
               </Button>
             </div>
-          </div>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>

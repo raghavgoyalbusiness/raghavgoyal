@@ -1,4 +1,7 @@
 import { Rocket, Globe, TrendingUp, Target } from 'lucide-react';
+import travelImage from '@/assets/raghav-travel.jpeg';
+import influencerConnectBg from '@/assets/influencer-connect-bg.jpg';
+import marketingDashboard from '@/assets/marketing-dashboard.jpg';
 
 export const Projects = () => {
   const projects = [
@@ -13,6 +16,7 @@ export const Projects = () => {
         'Focused on bridging the gap between brands and influencer marketing',
       ],
       color: 'primary',
+      image: influencerConnectBg,
     },
     {
       icon: Globe,
@@ -26,6 +30,7 @@ export const Projects = () => {
         'Conducted public workshops on digital skills and entrepreneurship',
       ],
       color: 'accent',
+      image: travelImage,
     },
     {
       icon: TrendingUp,
@@ -39,6 +44,7 @@ export const Projects = () => {
         'Implemented pricing and competitor research models',
       ],
       color: 'primary',
+      image: marketingDashboard,
     },
     {
       icon: Target,
@@ -68,40 +74,54 @@ export const Projects = () => {
             return (
               <div
                 key={index}
-                className="bg-card border-2 border-border rounded-lg p-8 hover-lift transition-all duration-300"
+                className="bg-card border-2 border-border rounded-lg overflow-hidden hover-lift transition-all duration-300"
               >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className={`p-3 rounded-lg ${project.color === 'primary' ? 'bg-primary/10' : 'bg-accent/10'}`}>
-                    <Icon className={`h-8 w-8 ${project.color === 'primary' ? 'text-primary' : 'text-accent'}`} />
+                {/* Project Image (if available) */}
+                {project.image && (
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                    <span
-                      className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                        project.color === 'primary'
-                          ? 'bg-primary/20 text-primary'
-                          : 'bg-accent/20 text-accent-foreground'
-                      }`}
-                    >
-                      {project.category}
-                    </span>
+                )}
+
+                <div className="p-8">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className={`p-3 rounded-lg ${project.color === 'primary' ? 'bg-primary/10' : 'bg-accent/10'}`}>
+                      <Icon className={`h-8 w-8 ${project.color === 'primary' ? 'text-primary' : 'text-accent'}`} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
+                      <span
+                        className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
+                          project.color === 'primary'
+                            ? 'bg-primary/20 text-primary'
+                            : 'bg-accent/20 text-accent-foreground'
+                        }`}
+                      >
+                        {project.category}
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                <p className="text-foreground/80 mb-6">{project.description}</p>
+                  <p className="text-foreground/80 mb-6">{project.description}</p>
 
-                <div>
-                  <h4 className="text-sm font-semibold mb-3 text-foreground/70">Key Outcomes:</h4>
-                  <ul className="space-y-2">
-                    {project.outcomes.map((outcome, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className={`mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0 ${
-                          project.color === 'primary' ? 'bg-primary' : 'bg-accent'
-                        }`}></span>
-                        <span className="text-sm text-foreground/70">{outcome}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 text-foreground/70">Key Outcomes:</h4>
+                    <ul className="space-y-2">
+                      {project.outcomes.map((outcome, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className={`mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0 ${
+                            project.color === 'primary' ? 'bg-primary' : 'bg-accent'
+                          }`}></span>
+                          <span className="text-sm text-foreground/70">{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             );

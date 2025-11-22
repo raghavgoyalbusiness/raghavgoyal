@@ -1,7 +1,32 @@
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 import { Linkedin, Headphones, MapPin } from 'lucide-react';
+import headshotImage from '@/assets/raghav-headshot.jpeg';
 
 export const Hero = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut' as const,
+      },
+    },
+  };
+
   return (
     <section id="home" className="min-h-screen section-night relative overflow-hidden">
       {/* Background gradient */}
@@ -11,8 +36,13 @@ export const Hero = () => {
         <div className="min-h-screen flex items-center">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full py-20">
             {/* Left Content */}
-            <div className="space-y-8 animate-fade-in-up">
-              <div className="space-y-4">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="space-y-8 order-2 lg:order-1"
+            >
+              <motion.div variants={itemVariants} className="space-y-4">
                 <p className="text-accent text-sm md:text-base font-medium tracking-wide uppercase">
                   Built at 3AM
                 </p>
@@ -23,16 +53,19 @@ export const Hero = () => {
                   Marketing & Partnerships · Influencer Campaigns · Host of{' '}
                   <span className="text-primary">The 3AM Show</span>
                 </h2>
-              </div>
+              </motion.div>
 
-              <p className="text-base sm:text-lg text-night-foreground/80 max-w-2xl leading-relaxed">
+              <motion.p
+                variants={itemVariants}
+                className="text-base sm:text-lg text-night-foreground/80 max-w-2xl leading-relaxed"
+              >
                 I'm a marketing and business enthusiast with a passion for building bridges between brands, creators, and communities. 
                 From volunteering abroad and leading university initiatives to securing funding for my own startup, Influencer-Connect.com, 
                 I've strengthened my skills in influencer marketing, digital strategy, and partnership building.
-              </p>
+              </motion.p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
@@ -62,51 +95,44 @@ export const Hero = () => {
                     Listen to The 3AM Show
                   </a>
                 </Button>
-              </div>
+              </motion.div>
 
               {/* Location */}
-              <div className="flex items-center gap-2 text-night-foreground/70">
+              <motion.div variants={itemVariants} className="flex items-center gap-2 text-night-foreground/70">
                 <MapPin className="h-4 w-4" />
                 <span className="text-sm">London, England, United Kingdom</span>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            {/* Right Content - Card Stack */}
-            <div className="hidden lg:block">
+            {/* Right Content - Profile Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+              className="order-1 lg:order-2"
+            >
               <div className="relative">
-                <div className="space-y-4">
-                  {[
-                    { name: 'Influencer-Connect', label: 'Startup', color: 'primary' },
-                    { name: 'NK Sales Centre', label: 'Family Business', color: 'accent' },
-                    { name: 'Think Pacific', label: 'Global Project', color: 'primary' },
-                    { name: 'WeNetwork', label: 'Community', color: 'accent' },
-                  ].map((item, index) => (
-                    <div
-                      key={item.name}
-                      className="card-night hover-lift border-2 border-night-border transform transition-all duration-300"
-                      style={{
-                        animationDelay: `${index * 0.1}s`,
-                      }}
-                    >
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <h3 className="font-semibold text-lg mb-1">{item.name}</h3>
-                          <span
-                            className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                              item.color === 'primary'
-                                ? 'bg-primary/20 text-primary'
-                                : 'bg-accent/20 text-accent'
-                            }`}
-                          >
-                            {item.label}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl hover-lift">
+                  <img
+                    src={headshotImage}
+                    alt="Raghav Goyal - Marketing & Partnerships Professional"
+                    className="w-full h-auto object-cover"
+                  />
+                  {/* Gradient overlay for night theme effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/40 to-transparent pointer-events-none"></div>
+                </div>
+                
+                {/* Floating accent cards */}
+                <div className="hidden lg:block absolute -bottom-6 -left-6 card-night border-2 border-primary/50 px-4 py-3 hover-lift">
+                  <p className="text-sm font-semibold text-primary">Influencer-Connect</p>
+                  <p className="text-xs text-night-foreground/70">Startup Founder</p>
+                </div>
+                <div className="hidden lg:block absolute -top-6 -right-6 card-night border-2 border-accent/50 px-4 py-3 hover-lift">
+                  <p className="text-sm font-semibold text-accent">The 3AM Show</p>
+                  <p className="text-xs text-night-foreground/70">Podcast Host</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
