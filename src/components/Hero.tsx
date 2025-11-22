@@ -43,9 +43,6 @@ export const Hero = () => {
               className="space-y-6 lg:space-y-8 order-2 lg:order-1"
             >
               <motion.div variants={itemVariants} className="space-y-3 text-center lg:text-left">
-                <p className="text-accent text-sm md:text-base font-medium tracking-wide uppercase">
-                  Built at 3AM
-                </p>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-tight">
                   Raghav Goyal
                 </h1>
