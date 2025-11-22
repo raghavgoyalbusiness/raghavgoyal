@@ -120,7 +120,7 @@ export const Podcast = () => {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                 asChild
               >
-                <a href="https://open.spotify.com/show/your-show-id" target="_blank" rel="noopener noreferrer">
+                <a href="https://open.spotify.com/show/4JEIs5unrLEfN6q5t2j406?si=df6cb4b53eac4eaa" target="_blank" rel="noopener noreferrer">
                   Listen on Spotify
                 </a>
               </Button>
@@ -129,7 +129,7 @@ export const Podcast = () => {
                 className="bg-night-foreground hover:bg-night-foreground/90 text-night font-semibold"
                 asChild
               >
-                <a href="https://podcasts.apple.com/podcast/your-podcast-id" target="_blank" rel="noopener noreferrer">
+                <a href="https://podcasts.apple.com/gb/podcast/the-3am-show/id1840128613" target="_blank" rel="noopener noreferrer">
                   Listen on Apple Podcasts
                 </a>
               </Button>
