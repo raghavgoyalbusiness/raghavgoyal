@@ -32,17 +32,17 @@ export const Hero = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-night via-night to-night-muted opacity-90" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="min-h-screen flex items-center">
-          <div className="grid lg:grid-cols-[1fr_400px] gap-12 lg:gap-16 items-center w-full py-20">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+        <div className="min-h-screen flex items-center py-12 lg:py-0">
+          <div className="grid lg:grid-cols-[1fr_380px] gap-8 lg:gap-20 items-center w-full">
             {/* Left Content */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="space-y-8 order-2 lg:order-1"
+              className="space-y-6 lg:space-y-8 order-2 lg:order-1"
             >
-              <motion.div variants={itemVariants} className="space-y-4 text-center lg:text-left">
+              <motion.div variants={itemVariants} className="space-y-3 text-center lg:text-left">
                 <p className="text-accent text-sm md:text-base font-medium tracking-wide uppercase">
                   Built at 3AM
                 </p>
@@ -57,7 +57,7 @@ export const Hero = () => {
 
               <motion.p
                 variants={itemVariants}
-                className="text-base sm:text-lg text-night-foreground/80 max-w-2xl leading-relaxed"
+                className="text-base sm:text-lg text-night-foreground/80 max-w-2xl leading-relaxed lg:pr-8"
               >
                 I'm a marketing and business enthusiast with a passion for building bridges between brands, creators, and communities. 
                 From volunteering abroad and leading university initiatives to securing funding for my own startup, Influencer-Connect.com, 
@@ -65,7 +65,7 @@ export const Hero = () => {
               </motion.p>
 
               {/* CTA Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Button
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
@@ -98,7 +98,7 @@ export const Hero = () => {
               </motion.div>
 
               {/* Location */}
-              <motion.div variants={itemVariants} className="flex items-center gap-2 text-night-foreground/70">
+              <motion.div variants={itemVariants} className="flex items-center justify-center lg:justify-start gap-2 text-night-foreground/70 pt-2">
                 <MapPin className="h-4 w-4" />
                 <span className="text-sm">London, England, United Kingdom</span>
               </motion.div>
@@ -111,8 +111,8 @@ export const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
               className="order-1 lg:order-2"
             >
-              <div className="relative max-w-sm mx-auto">
-                <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl hover-lift">
+              <div className="relative max-w-[320px] mx-auto lg:mx-0">
+                <div className="relative rounded-2xl overflow-hidden border-3 border-primary/30 shadow-2xl hover-lift">
                   <img
                     src={headshotImage}
                     alt="Raghav Goyal - Marketing & Partnerships Professional"
