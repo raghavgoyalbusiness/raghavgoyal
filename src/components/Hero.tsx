@@ -90,7 +90,7 @@ export const Hero = () => {
                     className="flex items-center gap-2"
                   >
                     <Headphones className="h-5 w-5" />
-                    Listen to The 3AM Show
+                    listen to my podcast
                   </Link>
                 </Button>
               </motion.div>
