@@ -34,7 +34,7 @@ export const Hero = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="min-h-screen flex items-center">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full py-20">
+          <div className="grid lg:grid-cols-[1fr_400px] gap-12 lg:gap-16 items-center w-full py-20">
             {/* Left Content */}
             <motion.div
               variants={containerVariants}
@@ -42,7 +42,7 @@ export const Hero = () => {
               animate="visible"
               className="space-y-8 order-2 lg:order-1"
             >
-              <motion.div variants={itemVariants} className="space-y-4">
+              <motion.div variants={itemVariants} className="space-y-4 text-center lg:text-left">
                 <p className="text-accent text-sm md:text-base font-medium tracking-wide uppercase">
                   Built at 3AM
                 </p>
@@ -111,7 +111,7 @@ export const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
               className="order-1 lg:order-2"
             >
-              <div className="relative">
+              <div className="relative max-w-sm mx-auto">
                 <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl hover-lift">
                   <img
                     src={headshotImage}
