@@ -103,9 +103,8 @@ export const Hero = () => {
               {/* Social Buttons */}
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 pt-4">
                 <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-night-border hover:bg-night-muted text-night-foreground font-semibold"
+                  size="sm"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                   asChild
                 >
                   <a
@@ -114,21 +113,20 @@ export const Hero = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"
                   >
-                    <Instagram className="h-5 w-5" />
+                    <Instagram className="h-4 w-4" />
                     Connect on Instagram
                   </a>
                 </Button>
                 <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-night-border hover:bg-night-muted text-night-foreground font-semibold"
+                  size="sm"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                   asChild
                 >
                   <a
                     href="mailto:raghav.goyal1909176@gmail.com"
                     className="flex items-center gap-2"
                   >
-                    <Mail className="h-5 w-5" />
+                    <Mail className="h-4 w-4" />
                     raghav.goyal1909176@gmail.com
                   </a>
                 </Button>
