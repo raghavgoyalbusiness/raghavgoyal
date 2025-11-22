@@ -2,52 +2,36 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link, useLocation } from 'react-router-dom';
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Podcast', href: '#podcast' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Leadership', href: '#leadership' },
-  { name: 'Education', href: '#education' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Skills', href: '/skills' },
+  { name: 'Experience', href: '/experience' },
+  { name: 'Podcast', href: '/podcast' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Leadership', href: '/leadership' },
+  { name: 'Education', href: '/education' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Update active section based on scroll position
-      const sections = navItems.map(item => item.href.slice(1));
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -64,27 +48,27 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <button
-            onClick={() => scrollToSection('#home')}
+          <Link
+            to="/"
             className="text-xl md:text-2xl font-bold text-gradient-primary font-heading"
           >
             Raghav Goyal
-          </button>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                to={item.href}
                 className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
-                  activeSection === item.href.slice(1)
+                  location.pathname === item.href
                     ? 'text-primary'
                     : 'text-foreground/70 hover:text-foreground'
                 }`}
               >
                 {item.name}
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -105,17 +89,18 @@ export const Navbar = () => {
         <div className="lg:hidden bg-background border-b border-border">
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                to={item.href}
+                onClick={closeMobileMenu}
                 className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors rounded-md ${
-                  activeSection === item.href.slice(1)
+                  location.pathname === item.href
                     ? 'text-primary bg-primary/10'
                     : 'text-foreground/70 hover:text-foreground hover:bg-muted'
                 }`}
               >
                 {item.name}
-              </button>
+              </Link>
             ))}
           </div>
         </div>
