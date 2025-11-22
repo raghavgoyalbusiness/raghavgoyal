@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/Navbar';
 import { Education } from '@/components/Education';
 import { Footer } from '@/components/Footer';
+import { BackToTop } from '@/components/BackToTop';
 
 const EducationPage = () => {
   return (
@@ -10,6 +11,7 @@ const EducationPage = () => {
         <Education />
       </div>
       <Footer />
+      <BackToTop />
     </div>
   );
 };
