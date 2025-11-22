@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Linkedin, Headphones, MapPin } from 'lucide-react';
+import { Linkedin, Headphones, MapPin, Instagram, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import headshotImage from '@/assets/raghav-headshot.jpeg';
 
@@ -98,6 +98,40 @@ export const Hero = () => {
               <motion.div variants={itemVariants} className="flex items-center justify-center lg:justify-start gap-2 text-night-foreground/70 pt-2">
                 <MapPin className="h-4 w-4" />
                 <span className="text-sm">London, England, United Kingdom</span>
+              </motion.div>
+
+              {/* Social Buttons */}
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 pt-4">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-night-border hover:bg-night-muted text-night-foreground font-semibold"
+                  asChild
+                >
+                  <a
+                    href="https://www.instagram.com/raghavgoyalx?igsh=bDV3c3E3eWZ4ZXM2&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Instagram className="h-5 w-5" />
+                    Connect on Instagram
+                  </a>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-night-border hover:bg-night-muted text-night-foreground font-semibold"
+                  asChild
+                >
+                  <a
+                    href="mailto:raghav.goyal1909176@gmail.com"
+                    className="flex items-center gap-2"
+                  >
+                    <Mail className="h-5 w-5" />
+                    raghav.goyal1909176@gmail.com
+                  </a>
+                </Button>
               </motion.div>
             </motion.div>
 
