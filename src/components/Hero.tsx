@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { Linkedin, Headphones, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import headshotImage from '@/assets/raghav-headshot.jpeg';
 
 export const Hero = () => {
@@ -84,13 +85,13 @@ export const Hero = () => {
                   className="border-2 border-night-border hover:bg-night-muted text-night-foreground font-semibold"
                   asChild
                 >
-                  <a
-                    href="#podcast"
+                  <Link
+                    to="/podcast"
                     className="flex items-center gap-2"
                   >
                     <Headphones className="h-5 w-5" />
                     Listen to The 3AM Show
-                  </a>
+                  </Link>
                 </Button>
               </motion.div>
 
