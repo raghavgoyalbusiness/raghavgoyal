@@ -63,7 +63,7 @@ export const Hero = () => {
               </motion.p>
 
               {/* CTA Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 pt-2">
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row flex-wrap gap-3 pt-2">
                 <Button
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
@@ -89,8 +89,23 @@ export const Hero = () => {
                     className="flex items-center gap-2"
                   >
                     <Headphones className="h-5 w-5" />
-                    listen to my podcast
+                    Listen to my Podcast
                   </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                  asChild
+                >
+                  <a
+                    href="https://www.canva.com/design/DAGzu4egR7o/J1P3lYtEQqTClp5p9P8e0A/edit?utm_content=DAGzu4egR7o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Palette className="h-5 w-5" />
+                    View My Portfolio
+                  </a>
                 </Button>
               </motion.div>
 
