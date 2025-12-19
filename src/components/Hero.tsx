@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Linkedin, Headphones, MapPin, Instagram, Mail } from 'lucide-react';
+import { Linkedin, Headphones, MapPin, Instagram, Mail, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import headshotImage from '@/assets/raghav-headshot.jpeg';
 
@@ -128,6 +128,21 @@ export const Hero = () => {
                   >
                     <Mail className="h-4 w-4" />
                     raghav.goyal1909176@gmail.com
+                  </a>
+                </Button>
+                <Button
+                  size="sm"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                  asChild
+                >
+                  <a
+                    href="https://www.canva.com/design/DAGzu4egR7o/J1P3lYtEQqTClp5p9P8e0A/edit?utm_content=DAGzu4egR7o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Palette className="h-4 w-4" />
+                    View My Portfolio
                   </a>
                 </Button>
               </motion.div>
