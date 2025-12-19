@@ -29,9 +29,9 @@ export const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen section-night relative overflow-hidden">
+    <section id="home" className="min-h-screen bg-background text-foreground relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-night via-night to-night-muted opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted opacity-90" />
       
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="min-h-screen flex items-center py-12 lg:py-0">
@@ -47,7 +47,7 @@ export const Hero = () => {
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-tight">
                   Raghav Goyal
                 </h1>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-night-foreground/90">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-foreground/80">
                   Marketing & Partnerships · Influencer Campaigns · Host of{' '}
                   <span className="text-primary">The 3AM Show</span>
                 </h2>
@@ -55,7 +55,7 @@ export const Hero = () => {
 
               <motion.p
                 variants={itemVariants}
-                className="text-base sm:text-lg text-night-foreground/80 max-w-2xl leading-relaxed lg:pr-8"
+                className="text-base sm:text-lg text-foreground/70 max-w-2xl leading-relaxed lg:pr-8"
               >
                 I'm a marketing and business enthusiast with a passion for building bridges between brands, creators, and communities. 
                 From volunteering abroad and leading university initiatives to securing funding for my own startup, Influencer-Connect.com, 
@@ -110,7 +110,7 @@ export const Hero = () => {
               </motion.div>
 
               {/* Location */}
-              <motion.div variants={itemVariants} className="flex items-center justify-center lg:justify-start gap-2 text-night-foreground/70 pt-2">
+              <motion.div variants={itemVariants} className="flex items-center justify-center lg:justify-start gap-2 text-foreground/60 pt-2">
                 <MapPin className="h-4 w-4" />
                 <span className="text-sm">London, England, United Kingdom</span>
               </motion.div>
@@ -177,18 +177,18 @@ export const Hero = () => {
                     alt="Raghav Goyal - Marketing & Partnerships Professional"
                     className="w-full h-auto object-cover"
                   />
-                  {/* Gradient overlay for night theme effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-night/40 to-transparent pointer-events-none"></div>
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none"></div>
                 </div>
                 
                 {/* Floating accent cards */}
-                <div className="hidden lg:block absolute -bottom-6 -left-6 card-night border-2 border-primary/50 px-4 py-3 hover-lift">
+                <div className="hidden lg:block absolute -bottom-6 -left-6 bg-card border border-border rounded-lg px-4 py-3 shadow-lg hover-lift">
                   <p className="text-sm font-semibold text-primary">Influencer-Connect</p>
-                  <p className="text-xs text-night-foreground/70">Startup Founder</p>
+                  <p className="text-xs text-muted-foreground">Startup Founder</p>
                 </div>
-                <div className="hidden lg:block absolute -top-6 -right-6 card-night border-2 border-accent/50 px-4 py-3 hover-lift">
+                <div className="hidden lg:block absolute -top-6 -right-6 bg-card border border-border rounded-lg px-4 py-3 shadow-lg hover-lift">
                   <p className="text-sm font-semibold text-accent">The 3AM Show</p>
-                  <p className="text-xs text-night-foreground/70">Podcast Host</p>
+                  <p className="text-xs text-muted-foreground">Podcast Host</p>
                 </div>
               </div>
             </motion.div>
