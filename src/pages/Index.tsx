@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
+import { Story } from '@/components/Story';
 import { About } from '@/components/About';
 import { Skills } from '@/components/Skills';
 import { Experience } from '@/components/Experience';
@@ -15,7 +16,7 @@ const Index = () => {
     <div className="smooth-scroll">
       <Navbar />
       <Hero />
-      <About />
+      <Story />
       <Skills />
       <Experience />
       <Podcast />
