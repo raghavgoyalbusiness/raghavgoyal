@@ -1,6 +1,6 @@
 import { CheckCircle2 } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
-import aboutImage from '@/assets/raghav-about.jpeg';
+import casualImage from '@/assets/raghav-casual.jpeg';
 
 export const About = () => {
   const interests = [
@@ -26,7 +26,7 @@ export const About = () => {
             <div className="sticky top-24">
               <div className="rounded-2xl overflow-hidden border-2 border-primary/20 shadow-lg hover-lift">
                 <img
-                  src={aboutImage}
+                  src={casualImage}
                   alt="Raghav Goyal"
                   className="w-full h-auto object-cover"
                 />
