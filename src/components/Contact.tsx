@@ -1,172 +1,69 @@
-import { useState } from 'react';
-import { Mail, Linkedin, Phone, Send } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
+import { AnimatedSection } from '@/components/AnimatedSection';
+import { ArrowUpRight, Mail, Linkedin, Instagram } from 'lucide-react';
+
+const links = [
+  { label: 'Email', value: 'raghav.goyal1909176@gmail.com', href: 'mailto:raghav.goyal1909176@gmail.com', icon: Mail },
+  { label: 'LinkedIn', value: '/in/raghavgoyal010205', href: 'https://www.linkedin.com/in/raghavgoyal010205', icon: Linkedin },
+  { label: 'Instagram', value: '@raghavgoyalx', href: 'https://www.instagram.com/raghavgoyalx', icon: Instagram },
+];
 
 export const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: 'Message Sent!',
-        description: 'Thank you for reaching out. I\'ll get back to you soon.',
-      });
-      setFormData({ name: '', email: '', message: '' });
-      setIsSubmitting(false);
-    }, 1000);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   return (
-    <section id="contact" className="section-light py-20 md:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-12 text-center text-gradient-primary">
-          Get In Touch
-        </h2>
+    <section id="contact" className="py-24 md:py-32 border-t border-border/60 relative">
+      <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
-              <p className="text-foreground/80 leading-relaxed mb-8">
-                I'm always interested in hearing about new opportunities, collaborations, and projects. 
-                Whether you're looking for a marketing professional, want to discuss influencer partnerships, 
-                or just want to chat about The 3AM Show, feel free to reach out.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <a
-                href="mailto:raghavgoyal010205@gmail.com"
-                className="flex items-center gap-4 p-4 bg-card border-2 border-border rounded-lg hover-lift transition-all duration-300 group"
-              >
-                <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Mail className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <p className="font-medium text-sm text-muted-foreground">Email</p>
-                  <p className="text-foreground">raghavgoyal010205@gmail.com</p>
-                </div>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/raghavgoyal010205"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-card border-2 border-border rounded-lg hover-lift transition-all duration-300 group"
-              >
-                <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Linkedin className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <p className="font-medium text-sm text-muted-foreground">LinkedIn</p>
-                  <p className="text-foreground">raghavgoyal010205</p>
-                </div>
-              </a>
-
-              <a
-                href="tel:+447392147176"
-                className="flex items-center gap-4 p-4 bg-card border-2 border-border rounded-lg hover-lift transition-all duration-300 group"
-              >
-                <div className="p-3 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
-                  <Phone className="h-6 w-6 text-accent" />
-                </div>
-                <div>
-                  <p className="font-medium text-sm text-muted-foreground">Phone</p>
-                  <p className="text-foreground">+44 7392 147176</p>
-                </div>
-              </a>
-            </div>
+      <div className="container mx-auto px-6 lg:px-10 relative">
+        <AnimatedSection>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4 text-center">
+            05 — Contact
           </div>
+          <h2 className="font-heading font-bold text-5xl sm:text-6xl lg:text-8xl tracking-tight text-center text-balance">
+            Let's build <br />
+            <span className="text-primary">something loud.</span>
+          </h2>
+          <p className="mt-8 text-lg text-foreground/60 max-w-2xl mx-auto text-center leading-relaxed">
+            Pitch me a brief, a podcast idea, a partnership, or just say hi. I read everything
+            myself and reply faster than I probably should.
+          </p>
+        </AnimatedSection>
 
-          {/* Contact Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your name"
-                  required
-                  className="w-full"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="your.email@example.com"
-                  required
-                  className="w-full"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your project or opportunity..."
-                  required
-                  rows={5}
-                  className="w-full resize-none"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                size="lg"
-                disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-              >
-                {isSubmitting ? (
-                  'Sending...'
-                ) : (
-                  <>
-                    <Send className="h-5 w-5 mr-2" />
-                    Send Message
-                  </>
-                )}
-              </Button>
-            </form>
+        <AnimatedSection delay={0.2}>
+          <div className="mt-16 max-w-3xl mx-auto grid sm:grid-cols-3 gap-4">
+            {links.map((l) => {
+              const Icon = l.icon;
+              return (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target={l.href.startsWith('http') ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  className="group rounded-2xl border border-border bg-surface/40 p-6 hover:border-primary/60 hover:bg-surface transition-all"
+                >
+                  <div className="flex items-start justify-between mb-6">
+                    <Icon className="h-5 w-5 text-primary" />
+                    <ArrowUpRight className="h-4 w-4 text-foreground/40 group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                  <div className="text-xs uppercase tracking-wider text-foreground/50 mb-1">
+                    {l.label}
+                  </div>
+                  <div className="text-sm font-medium text-foreground break-all">{l.value}</div>
+                </a>
+              );
+            })}
           </div>
-        </div>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.35}>
+          <div className="mt-16 text-center">
+            <a
+              href="mailto:raghav.goyal1909176@gmail.com"
+              className="inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground hover:bg-primary/90 transition-all glow-amber"
+            >
+              Start a conversation
+              <ArrowUpRight className="h-5 w-5" />
+            </a>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

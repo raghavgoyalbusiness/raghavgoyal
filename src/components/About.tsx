@@ -1,78 +1,74 @@
-import { CheckCircle2 } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
-import casualImage from '@/assets/raghav-casual.jpeg';
+import about from '@/assets/raghav-casual.jpeg';
 
 export const About = () => {
-  const interests = [
-    'Influencer marketing & creator partnerships',
-    'Brand collaborations & digital platforms',
-    'Content creation & social-first strategy',
-    'Product design & user experience',
-  ];
-
   return (
-    <section id="about" className="section-light py-20 md:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-12 text-center text-gradient-primary">
-            About Me
-          </h2>
-        </AnimatedSection>
-
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-12 items-start">
-          {/* Image */}
-          <AnimatedSection delay={0.2}>
-            <div className="lg:col-span-1">
-            <div className="sticky top-24">
-              <div className="rounded-2xl overflow-hidden border-2 border-primary/20 shadow-lg hover-lift">
-                <img
-                  src={casualImage}
-                  alt="Raghav Goyal"
-                  className="w-full h-auto object-cover"
-                />
+    <section id="about" className="py-24 md:py-32 relative">
+      <div className="container mx-auto px-6 lg:px-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          <AnimatedSection className="lg:col-span-5">
+            <div className="sticky top-28">
+              <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">
+                01 — About
               </div>
-            </div>
+              <div className="relative rounded-3xl overflow-hidden border border-border">
+                <img src={about} alt="Raghav Goyal" className="w-full h-auto object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              </div>
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <div className="card-night">
+                  <div className="text-xs text-foreground/50">Currently</div>
+                  <div className="text-sm font-medium mt-1">AI Forge Incubator</div>
+                </div>
+                <div className="card-night">
+                  <div className="text-xs text-foreground/50">Based in</div>
+                  <div className="text-sm font-medium mt-1">London, UK</div>
+                </div>
+              </div>
             </div>
           </AnimatedSection>
 
-          {/* Content */}
-          <AnimatedSection delay={0.4} className="lg:col-span-2 space-y-8">
-            <div className="space-y-6 text-base sm:text-lg text-foreground/80 leading-relaxed">
+          <AnimatedSection delay={0.15} className="lg:col-span-7 space-y-8">
+            <h2 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-balance">
+              Building bridges between <span className="text-primary">brands, creators</span> and what's next.
+            </h2>
+
+            <div className="space-y-6 text-lg text-foreground/70 leading-relaxed">
               <p>
-                I'm a marketing and business enthusiast with a passion for building bridges between brands, creators, and communities. 
-                Over the last few years at the University of Westminster, I've immersed myself in leadership, entrepreneurship, and global 
-                experiences — from volunteering abroad and leading university initiatives to securing funding for my own startup, 
-                Influencer-Connect.com. These experiences have strengthened my skills in influencer marketing, digital strategy, and partnership building.
+                I'm a marketing and partnerships professional specialising in influencer marketing,
+                brand collaborations, and AI-powered growth tools. I grew up obsessed with how
+                culture moves online — and how the right partnership can compound a brand overnight.
               </p>
-              
               <p>
-                Currently, I'm expanding my expertise in marketing, partnerships, and product design. I've worked with brands to run ad campaigns, 
-                manage social media content, and execute influencer activations, gaining hands-on experience in both B2B and B2C environments. 
-                I enjoy creating strategies that deliver measurable results, designing seamless digital experiences, and telling brand stories that resonate.
+                Today I'm the founder of{' '}
+                <span className="text-foreground font-medium">Influencer Connect</span>, building{' '}
+                <span className="text-foreground font-medium">Anton</span> — an AI agent for
+                micro-influencer discovery — inside the AI Forge incubator. I host{' '}
+                <span className="text-primary font-medium">The 3AM Show</span>, where I talk to
+                founders, creators, and operators about the messy reality of building.
               </p>
-              
               <p>
-                I have volunteered and taught from community knowledge-exchange sessions to global volunteering experiences which keeps my 
-                perspective human-centred and purpose-driven.
-              </p>
-              
-              <p>
-                Looking ahead, my goal is to grow as a marketing and partnerships professional with a focus on influencer marketing, 
-                brand collaborations, and digital platforms. I'm particularly interested in working with organisations that champion innovation, 
-                creativity, and impact — whether in tech, media, hospitality, or the creator economy.
+                Before this I worked with brands on influencer activations and campaigns, led
+                university initiatives at Westminster, taught with Think Pacific in Fiji, and ran
+                marketing at Viral Hub. Different rooms, same instinct — find the leverage, then pull.
               </p>
             </div>
 
-            <div>
-              <h3 className="text-xl sm:text-2xl font-semibold mb-6">What I'm Most Interested In</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {interests.map((interest, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground/80">{interest}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="grid sm:grid-cols-2 gap-3 pt-4">
+              {[
+                'Influencer marketing & creator partnerships',
+                'AI-powered growth tooling',
+                'Brand campaigns & activations',
+                'Founder storytelling & podcasting',
+              ].map((s) => (
+                <div
+                  key={s}
+                  className="flex items-start gap-3 rounded-xl border border-border/60 bg-surface/40 p-4"
+                >
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground/80">{s}</span>
+                </div>
+              ))}
             </div>
           </AnimatedSection>
         </div>

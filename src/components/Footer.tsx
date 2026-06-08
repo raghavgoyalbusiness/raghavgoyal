@@ -1,17 +1,20 @@
-import { Heart } from 'lucide-react';
-
 export const Footer = () => {
   return (
-    <footer className="section-night py-8 border-t border-night-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4">
-          <p className="text-night-foreground/70 text-sm">
-            © {new Date().getFullYear()} Raghav Goyal. Built at 3AM with{' '}
-            <Heart className="inline h-4 w-4 text-primary" /> for the restless and ambitious.
+    <footer className="py-12 border-t border-border">
+      <div className="container mx-auto px-6 lg:px-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-primary" />
+            <span className="font-heading font-semibold">
+              Raghav<span className="text-primary">.</span>
+            </span>
+          </div>
+          <p className="text-sm text-foreground/50">
+            © {new Date().getFullYear()} Raghav Goyal — Built at 3AM, London.
           </p>
-          <p className="text-night-foreground/50 text-xs">
-            Marketing · Partnerships · Influencer Campaigns · The 3AM Show
-          </p>
+          <div className="flex items-center gap-4 text-xs text-foreground/40">
+            <a href="#home" className="hover:text-primary transition-colors">Top ↑</a>
+          </div>
         </div>
       </div>
     </footer>
