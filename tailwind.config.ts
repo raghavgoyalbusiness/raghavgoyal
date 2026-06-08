@@ -57,6 +57,10 @@ export default {
           muted: "hsl(var(--night-muted))",
           border: "hsl(var(--night-border))",
         },
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          elevated: "hsl(var(--surface-elevated))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
