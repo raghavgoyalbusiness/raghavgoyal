@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['Poppins', 'sans-serif'],
+        heading: ['"Space Grotesk"', 'Inter', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
       colors: {
@@ -56,6 +56,10 @@ export default {
           foreground: "hsl(var(--night-foreground))",
           muted: "hsl(var(--night-muted))",
           border: "hsl(var(--night-border))",
+        },
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          elevated: "hsl(var(--surface-elevated))",
         },
       },
       borderRadius: {

@@ -1,30 +1,27 @@
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-import { Story } from '@/components/Story';
 import { About } from '@/components/About';
-import { Skills } from '@/components/Skills';
 import { Experience } from '@/components/Experience';
-import { Podcast } from '@/components/Podcast';
 import { Projects } from '@/components/Projects';
-import { Leadership } from '@/components/Leadership';
-import { Education } from '@/components/Education';
+import { Podcast } from '@/components/Podcast';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
+import { BackToTop } from '@/components/BackToTop';
 
 const Index = () => {
   return (
-    <div className="smooth-scroll">
+    <div className="smooth-scroll bg-background min-h-screen noise">
       <Navbar />
-      <Hero />
-      <Story />
-      <Skills />
-      <Experience />
-      <Podcast />
-      <Projects />
-      <Leadership />
-      <Education />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Podcast />
+        <Contact />
+      </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

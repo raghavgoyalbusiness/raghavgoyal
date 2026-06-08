@@ -1,129 +1,73 @@
-import { Rocket, Globe, TrendingUp, Target } from 'lucide-react';
-import travelImage from '@/assets/raghav-travel.jpeg';
-import influencerConnectBg from '@/assets/influencer-connect-bg.jpg';
-import marketingDashboard from '@/assets/marketing-dashboard.jpg';
+import { AnimatedSection } from '@/components/AnimatedSection';
+import { ArrowUpRight, Sparkles, Users } from 'lucide-react';
+
+const projects = [
+  {
+    name: 'Anton',
+    tagline: 'AI agent for micro-influencer discovery',
+    desc: 'Anton scans the long-tail of creator platforms to surface the right micro-influencers for a brief in minutes — not weeks. Built inside the AI Forge incubator.',
+    status: 'In incubation',
+    icon: Sparkles,
+    accent: true,
+  },
+  {
+    name: 'Influencer Connect',
+    tagline: 'The company',
+    desc: 'A smarter matchmaking layer between brands and creators. Funded, building, and growing — focused on making partnerships less of a guessing game.',
+    status: 'Founder',
+    icon: Users,
+    accent: false,
+  },
+];
 
 export const Projects = () => {
-  const projects = [
-    {
-      icon: Rocket,
-      title: 'Influencer-Connect.com',
-      category: 'Startup',
-      description: 'A platform connecting brands and creators, securing funding through university entrepreneurship initiatives.',
-      outcomes: [
-        'Built from ground up: strategy, product, and partnerships',
-        'Secured funding for development and launch',
-        'Focused on bridging the gap between brands and influencer marketing',
-      ],
-      color: 'primary',
-      image: influencerConnectBg,
-    },
-    {
-      icon: Globe,
-      title: 'Think Pacific Projects',
-      category: 'Global Impact',
-      description: 'Digital transformation and capacity-building for social enterprises in Chiang Mai, Thailand.',
-      outcomes: [
-        'Led UX audits and built e-commerce storefront for Studio Naenna',
-        'Designed onboarding toolkit for Bella Goose Café',
-        'Delivered website and social media audits for Superbee',
-        'Conducted public workshops on digital skills and entrepreneurship',
-      ],
-      color: 'accent',
-      image: travelImage,
-    },
-    {
-      icon: TrendingUp,
-      title: 'NK Sales Centre Modernisation',
-      category: 'Family Business',
-      description: 'First marketing manager role transforming a traditional family business into a digital-first operation.',
-      outcomes: [
-        'Built complete digital foundation: website, social media, Google Business',
-        'Launched multi-channel campaigns driving 30%+ engagement',
-        'Created first internship program bringing fresh talent',
-        'Implemented pricing and competitor research models',
-      ],
-      color: 'primary',
-      image: marketingDashboard,
-    },
-    {
-      icon: Target,
-      title: 'Convogue Campaign Management',
-      category: 'Influencer Marketing',
-      description: 'Built and managed comprehensive influencer database and client acquisition pipeline.',
-      outcomes: [
-        'Researched and categorized creators using top influencer marketing platforms',
-        'Reached out to 100+ potential clients daily achieving 35% response rate',
-        '2.5% conversion rate from outreach to closed deals',
-        'Managed end-to-end process with Airtable, Notion, and HubSpot',
-      ],
-      color: 'accent',
-    },
-  ];
-
   return (
-    <section id="projects" className="section-light py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-12 text-center text-gradient-primary">
-          Projects & Impact
-        </h2>
+    <section id="projects" className="py-24 md:py-32 border-t border-border/60">
+      <div className="container mx-auto px-6 lg:px-10">
+        <AnimatedSection>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">03 — Builds</div>
+          <h2 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight max-w-3xl mb-16 text-balance">
+            Things I'm actively building.
+          </h2>
+        </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {projects.map((project, index) => {
-            const Icon = project.icon;
+        <div className="grid md:grid-cols-2 gap-6">
+          {projects.map((p, i) => {
+            const Icon = p.icon;
             return (
-              <div
-                key={index}
-                className="bg-card border-2 border-border rounded-lg overflow-hidden hover-lift transition-all duration-300"
-              >
-                {/* Project Image (if available) */}
-                {project.image && (
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                  </div>
-                )}
+              <AnimatedSection key={p.name} delay={i * 0.1}>
+                <div
+                  className={`group relative overflow-hidden rounded-3xl border ${
+                    p.accent
+                      ? 'border-primary/40 bg-gradient-to-br from-primary/10 via-surface to-surface'
+                      : 'border-border bg-surface/60'
+                  } p-8 sm:p-10 h-full hover:border-primary/60 transition-all`}
+                >
+                  <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-primary/10 blur-3xl group-hover:bg-primary/20 transition-colors" />
 
-                <div className="p-8">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className={`p-3 rounded-lg ${project.color === 'primary' ? 'bg-primary/10' : 'bg-accent/10'}`}>
-                      <Icon className={`h-8 w-8 ${project.color === 'primary' ? 'text-primary' : 'text-accent'}`} />
+                  <div className="relative flex items-start justify-between mb-8">
+                    <div
+                      className={`h-12 w-12 rounded-2xl flex items-center justify-center ${
+                        p.accent ? 'bg-primary text-primary-foreground' : 'bg-surface-elevated text-primary border border-border'
+                      }`}
+                    >
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                      <span
-                        className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                          project.color === 'primary'
-                            ? 'bg-primary/20 text-primary'
-                            : 'bg-accent/20 text-accent-foreground'
-                        }`}
-                      >
-                        {project.category}
-                      </span>
-                    </div>
+                    <span className="text-xs uppercase tracking-wider text-foreground/50 border border-border rounded-full px-3 py-1">
+                      {p.status}
+                    </span>
                   </div>
 
-                  <p className="text-foreground/80 mb-6">{project.description}</p>
+                  <h3 className="font-heading text-3xl sm:text-4xl font-bold mb-2">{p.name}</h3>
+                  <p className="text-primary text-sm font-medium mb-4">{p.tagline}</p>
+                  <p className="text-foreground/70 leading-relaxed mb-8">{p.desc}</p>
 
-                  <div>
-                    <h4 className="text-sm font-semibold mb-3 text-foreground/70">Key Outcomes:</h4>
-                    <ul className="space-y-2">
-                      {project.outcomes.map((outcome, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className={`mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0 ${
-                            project.color === 'primary' ? 'bg-primary' : 'bg-accent'
-                          }`}></span>
-                          <span className="text-sm text-foreground/70">{outcome}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="flex items-center gap-2 text-sm text-foreground/60 group-hover:text-primary transition-colors">
+                    <span>Learn more</span>
+                    <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
-              </div>
+              </AnimatedSection>
             );
           })}
         </div>

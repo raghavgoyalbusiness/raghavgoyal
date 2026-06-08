@@ -1,200 +1,122 @@
-import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Linkedin, Headphones, MapPin, Instagram, Mail, Palette } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import headshotImage from '@/assets/raghav-headshot.jpeg';
+import { ArrowRight, ArrowDown } from 'lucide-react';
+import headshot from '@/assets/raghav-headshot.jpeg';
 
 export const Hero = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut' as const,
-      },
-    },
-  };
-
   return (
-    <section id="home" className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted opacity-90" />
-      
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        <div className="min-h-screen flex items-center py-12 lg:py-0">
-          <div className="grid lg:grid-cols-[1fr_380px] gap-8 lg:gap-20 items-center w-full">
-            {/* Left Content */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="space-y-6 lg:space-y-8 order-2 lg:order-1"
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16"
+    >
+      {/* Background grid */}
+      <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 lg:px-10 relative z-10">
+        <div className="max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 backdrop-blur px-4 py-1.5 text-xs sm:text-sm text-foreground/70 mb-8"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+            </span>
+            Available for partnerships & founder collabs
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-heading font-bold text-[clamp(2.75rem,8vw,7rem)] leading-[0.95] tracking-tight text-balance"
+          >
+            Marketing, <br />
+            partnerships <br />
+            <span className="text-primary">& AI-powered</span> growth.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="mt-8 max-w-2xl text-lg sm:text-xl text-foreground/60 leading-relaxed"
+          >
+            I'm <span className="text-foreground font-medium">Raghav Goyal</span> — founder of{' '}
+            <span className="text-foreground">Influencer Connect</span>, AI Forge incubator
+            participant, and host of{' '}
+            <span className="text-primary">The 3AM Show</span>. I help brands and creators move
+            faster with smarter partnerships.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="mt-10 flex flex-col sm:flex-row gap-4"
+          >
+            <a
+              href="#work"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-all glow-amber"
             >
-              <motion.div variants={itemVariants} className="space-y-3 text-center lg:text-left">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-tight">
-                  Raghav Goyal
-                </h1>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-foreground/80">
-                  Marketing & Partnerships · Influencer Campaigns · Host of{' '}
-                  <span className="text-primary">The 3AM Show</span>
-                </h2>
-              </motion.div>
-
-              <motion.p
-                variants={itemVariants}
-                className="text-base sm:text-lg text-foreground/70 max-w-2xl leading-relaxed lg:pr-8"
-              >
-                I'm a marketing and business enthusiast with a passion for building bridges between brands, creators, and communities. 
-                From volunteering abroad and leading university initiatives to securing funding for my own startup, Influencer-Connect.com, 
-                I've strengthened my skills in influencer marketing, digital strategy, and partnership building.
-              </motion.p>
-
-              {/* CTA Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row flex-wrap gap-3 pt-2">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                  asChild
-                >
-                  <a
-                    href="https://www.linkedin.com/in/raghavgoyal010205"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                    Connect on LinkedIn
-                  </a>
-                </Button>
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                  asChild
-                >
-                  <Link
-                    to="/podcast"
-                    className="flex items-center gap-2"
-                  >
-                    <Headphones className="h-5 w-5" />
-                    Listen to my Podcast
-                  </Link>
-                </Button>
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                  asChild
-                >
-                  <a
-                    href="https://www.canva.com/design/DAGzu4egR7o/J1P3lYtEQqTClp5p9P8e0A/edit?utm_content=DAGzu4egR7o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <Palette className="h-5 w-5" />
-                    View My Portfolio
-                  </a>
-                </Button>
-              </motion.div>
-
-              {/* Location */}
-              <motion.div variants={itemVariants} className="flex items-center justify-center lg:justify-start gap-2 text-foreground/60 pt-2">
-                <MapPin className="h-4 w-4" />
-                <span className="text-sm">London, England, United Kingdom</span>
-              </motion.div>
-
-              {/* Social Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 pt-4">
-                <Button
-                  size="sm"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                  asChild
-                >
-                  <a
-                    href="https://www.instagram.com/raghavgoyalx?igsh=bDV3c3E3eWZ4ZXM2&utm_source=qr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <Instagram className="h-4 w-4" />
-                    Connect on Instagram
-                  </a>
-                </Button>
-                <Button
-                  size="sm"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                  asChild
-                >
-                  <a
-                    href="mailto:raghav.goyal1909176@gmail.com"
-                    className="flex items-center gap-2"
-                  >
-                    <Mail className="h-4 w-4" />
-                    raghav.goyal1909176@gmail.com
-                  </a>
-                </Button>
-                <Button
-                  size="sm"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                  asChild
-                >
-                  <a
-                    href="https://www.canva.com/design/DAGzu4egR7o/J1P3lYtEQqTClp5p9P8e0A/edit?utm_content=DAGzu4egR7o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <Palette className="h-4 w-4" />
-                    View My Portfolio
-                  </a>
-                </Button>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content - Profile Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
-              className="order-1 lg:order-2"
+              View my work
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-surface/40 px-7 py-3.5 text-sm font-semibold text-foreground hover:border-primary/60 hover:bg-surface transition-all"
             >
-              <div className="relative max-w-[320px] mx-auto lg:mx-0">
-                <div className="relative rounded-2xl overflow-hidden border-3 border-primary/30 shadow-2xl hover-lift">
-                  <img
-                    src={headshotImage}
-                    alt="Raghav Goyal - Marketing & Partnerships Professional"
-                    className="w-full h-auto object-cover"
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none"></div>
-                </div>
-                
-                {/* Floating accent cards */}
-                <div className="hidden lg:block absolute -bottom-6 -left-6 bg-card border border-border rounded-lg px-4 py-3 shadow-lg hover-lift">
-                  <p className="text-sm font-semibold text-primary">Influencer-Connect</p>
-                  <p className="text-xs text-muted-foreground">Startup Founder</p>
-                </div>
-                <div className="hidden lg:block absolute -top-6 -right-6 bg-card border border-border rounded-lg px-4 py-3 shadow-lg hover-lift">
-                  <p className="text-sm font-semibold text-accent">The 3AM Show</p>
-                  <p className="text-xs text-muted-foreground">Podcast Host</p>
-                </div>
+              Let's work together
+            </a>
+          </motion.div>
+
+          {/* Mini stats */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl"
+          >
+            {[
+              { v: '20', l: 'Founder at' },
+              { v: '1', l: 'AI agent shipped' },
+              { v: '3AM', l: 'Show host' },
+              { v: '∞', l: 'Restless energy' },
+            ].map((s) => (
+              <div key={s.l} className="border-l border-border pl-4">
+                <div className="font-heading text-2xl font-semibold text-primary">{s.v}</div>
+                <div className="text-xs text-foreground/50 mt-1">{s.l}</div>
               </div>
-            </motion.div>
-          </div>
+            ))}
+          </motion.div>
         </div>
+
+        {/* Floating headshot */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="hidden xl:block absolute right-10 top-1/2 -translate-y-1/2"
+        >
+          <div className="relative">
+            <div className="absolute -inset-4 bg-primary/30 blur-3xl rounded-full" />
+            <div className="relative w-[280px] h-[360px] rounded-3xl overflow-hidden border border-primary/30">
+              <img src={headshot} alt="Raghav Goyal" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+            </div>
+          </div>
+        </motion.div>
       </div>
+
+      <a
+        href="#about"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground/40 hover:text-primary transition-colors"
+        aria-label="Scroll down"
+      >
+        <ArrowDown className="h-5 w-5 animate-bounce" />
+      </a>
     </section>
   );
 };
