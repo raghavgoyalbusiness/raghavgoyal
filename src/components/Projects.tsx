@@ -63,7 +63,7 @@ export const Projects = () => {
                   <p className="text-foreground/70 leading-relaxed mb-8">{p.desc}</p>
 
                   <div className="flex items-center gap-2 text-sm text-foreground/60 group-hover:text-primary transition-colors">
-                    <span>Learn more</span>
+                    <span>Read about {p.name}</span>
                     <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
