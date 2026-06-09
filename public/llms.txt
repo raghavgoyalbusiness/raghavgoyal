@@ -1,0 +1,17 @@
+# Raghav Goyal's Personal Portfolio
+
+> A bold, dark-mode portfolio site showcasing Raghav Goyal's expertise in influencer marketing, brand partnerships, AI-powered growth tools, and entrepreneurial ventures — including Influencer Connect, AI Forge Incubator, and The 3AM Show podcast.
+
+Raghav Goyal is a marketing and partnerships professional specializing in influencer marketing, brand collaborations, and AI-powered growth tools. He is the founder of Influencer Connect, a participant in the AI Forge Incubator, and host of The 3AM Show podcast. This portfolio site serves as a hub for his professional presence, projects, and contact information.
+
+## Pages
+
+- [/](/): Home — Hero section with personal introduction, key stats, and call-to-action.
+- [/about](/about): About — Background, values, and professional philosophy.
+- [/experience](/experience): Experience — Marketing and partnership roles, career timeline.
+- [/projects](/projects): Projects — Influencer Connect, AI Forge, and other ventures.
+- [/skills](/skills): Skills — Technical and soft skills, tools, and methodologies.
+- [/education](/education): Education — Academic background and certifications.
+- [/leadership](/leadership): Leadership — Leadership roles, team building, and impact.
+- [/podcast](/podcast): Podcast — The 3AM Show, episodes, and media presence.
+- [/contact](/contact): Contact — Get in touch, social links, and collaboration opportunities.
